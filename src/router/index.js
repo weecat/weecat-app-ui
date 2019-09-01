@@ -10,7 +10,7 @@ export default new Router({
       path: '/',
       component: Layout,
       children: [{
-          path: 'index',
+          path: '/home',
           name: 'Home',
           component: () => import('@/views/home/Index')
         }]
