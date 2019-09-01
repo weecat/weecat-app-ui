@@ -1,13 +1,16 @@
 <template>
-    <div>
-      <router-view></router-view>
-    </div>
+  <div>
+    <Header/>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "Layout"
-    }
+  import Header from './Header'
+  export default {
+    name: 'Layout',
+    components: { Header }
+  }
 </script>
 
 <style scoped>
