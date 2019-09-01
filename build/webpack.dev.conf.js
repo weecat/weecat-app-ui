@@ -56,13 +56,25 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'index.html',
       inject: true,
-      chunks: ['app']
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
+      chunksSortMode: 'dependency',
+      chunks: ['manifest', 'vendor', 'app']
     }),
     new HtmlWebpackPlugin({
       filename: 'login.html',
       template: 'login.html',
       inject: true,
-      chunks: ['login']
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
+      chunksSortMode: 'dependency',
+      chunks: ['manifest', 'vendor', 'login']
     }),
     // copy custom static assets
     new CopyWebpackPlugin([
