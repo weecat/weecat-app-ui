@@ -70,67 +70,36 @@
             <div class="aw-mod aw-explore-list">
               <div class="mod-body">
                 <div class="aw-common-list">
-                  <div class="aw-item " data-topic-id="78,2078,3851,3792,">
-                    <a class="aw-user-name hidden-xs" href="/people/45510" rel="nofollow">
-                      <img src="http://wenda.wecenter.com/uploads/avatar/000/04/55/10_avatar_max.jpg" alt="">
-                      <i class="icon icon-v"></i>
-                    </a>
-                    <div class="aw-question-content">
-                      <h4>
-                        <a href="http://wenda.wecenter.com/question/32565">WeCenter官网小程序发布，欢迎大家试用吐槽.....</a>
-                        <span
-                          style="font-style: normal; background: #FF7F00; color: #ffffff; font-size: 12px;  padding: 2px 8px; border-radius: 3px;">
-                          置顶
-                        </span>
-                      </h4>
-                      <div class="pull-right hidden-xs contribute">
-                        <span class="pull-right text-color-999">贡献</span>
-                        <a class="aw-user-name" href="/people/2" rel="nofollow">
-                          <img src="http://wenda.wecenter.com/uploads/avatar/000/00/00/02_avatar_mid.jpg" alt="">
-                        </a>
-                        <a class="aw-user-name" href="http://wenda.wecenter.com/people/17117" rel="nofollow">
-                          <img src="http://wenda.wecenter.com/uploads/avatar/000/01/71/17_avatar_mid.jpg" alt=""></a>
+                  <template v-for="question in questions">
+                    <div v-bind:key="question.question_id" class="aw-item " data-topic-id="78,2078,3851,3792,">
+                      <a class="aw-user-name hidden-xs" href="/people/45510" rel="nofollow">
+                        <img src="http://wenda.wecenter.com/uploads/avatar/000/04/55/10_avatar_max.jpg" alt="">
+                        <i class="icon icon-v"></i>
+                      </a>
+                      <div class="aw-question-content">
+                        <h4>
+                          <a :href="'/question/'+question.question_id">{{question.question_content}}</a>
+                        </h4>
+                        <div class="pull-right hidden-xs contribute">
+                          <span class="pull-right text-color-999">贡献</span>
+                          <template v-for="user in question.answer_users">
+                            <a v-bind:key="user.uid" class="aw-user-name" :href="'/people/'+user.uid" rel="nofollow">
+                              <img :src="'http://wenda.wecenter.com'+user.avatar" alt="">
+                            </a>
+                          </template>
+                        </div>
+                        <p>
+                          <a class="aw-question-tags" href="http://wenda.wecenter.com/explore/category-2">WeCenter
+                            程序</a>
+                          <a href="/people/50813" class="aw-user-name">cc碳子</a>
+                          <span class="text-color-999">
+                            回复了问题 14 人关注 • {{question.answer_count}} 个回复  {{question.answer_count}} 次浏览  {{question.add_time}}
+                          </span>
+                          <span class="text-color-999 related-topic collapse"> 来自相关话题</span>
+                        </p>
                       </div>
-                      <p>
-                        <a class="aw-question-tags" href="http://wenda.wecenter.com/explore/category-2">WeCenter 程序</a>
-                        • <a href="http://wenda.wecenter.com/people/50813" class="aw-user-name" data-id="50813">cc碳子</a>
-                        <span
-                          class="text-color-999">回复了问题 • 14 人关注 • 11 个回复 • 1649 次浏览 • 2019-08-18 15:27</span>
-                        <span class="text-color-999 related-topic collapse"> • 来自相关话题</span>
-                      </p>
                     </div>
-                  </div>
-                  <div class="aw-item " data-topic-id="2078,3853,">
-                    <a class="aw-user-name hidden-xs" href="/people/45510" rel="nofollow">
-                      <img src="http://wenda.wecenter.com/uploads/avatar/000/04/55/10_avatar_max.jpg" alt="">
-                      <i class="icon icon-v"></i>
-                    </a>
-                    <div class="aw-question-content">
-                      <h4>
-                        <a href="http://wenda.wecenter.com/question/32569">WeCenter3.3.3版本发布...</a>
-                        <span
-                          style="font-style: normal; background: #FF7F00; color: #ffffff; font-size: 12px;  padding: 2px 8px; border-radius: 3px;">
-                          置顶
-                        </span>
-                      </h4>
-                      <div class="pull-right hidden-xs contribute">
-                        <span class="pull-right text-color-999">贡献</span>
-                        <a class="aw-user-name" data-id="44836" href="http://wenda.wecenter.com/people/44836"
-                           rel="nofollow">
-                          <img src="http://wenda.wecenter.com/static/common/avatar-mid-img.png" alt=""></a>
-                        <a class="aw-user-name" data-id="50629" href="http://wenda.wecenter.com/people/50629"
-                           rel="nofollow">
-                          <img src="http://wenda.wecenter.com/uploads/avatar/000/05/06/29_avatar_mid.jpg" alt="">
-                        </a>
-                      </div>
-                      <p>
-                        <a class="aw-question-tags" href="/explore/category-2">WeCenter 程序</a>
-                        • <a href="/people/3583" class="aw-user-name" data-id="3583">小宾</a>
-                        <span class="text-color-999">回复了问题 • 18 人关注 • 14 个回复 • 1383 次浏览 • 6 天前</span>
-                        <span class="text-color-999 related-topic collapse"> • 来自相关话题</span>
-                      </p>
-                    </div>
-                  </div>
+                  </template>
                 </div>
               </div>
               <div class="mod-footer">
@@ -217,6 +186,7 @@
 <script>
   import UsersApi from '@/api/UsersApi'
   import TopicsApi from '@/api/TopicsApi'
+  import PostsApi from '@/api/PostsApi'
 
   export default {
     name: 'Index',
@@ -230,15 +200,25 @@
           'answer_count': '',
           'agree_count': ''
         }],
+        questions: [],
         hotTopics: [],
         hotUsers: []
       }
     },
     created() {
+      this.getExplore()
       this.getHotUsers()
       this.getHotTopics()
     },
     methods: {
+      getExplore() {
+        let data = {}
+        PostsApi.getExplore(data).then(result => {
+          this.questions = result.data.list
+        }).catch(err => {
+          console.log(err)
+        })
+      },
       getHotUsers() {
         let data = {}
         UsersApi.getHotUsers(data).then(result => {
