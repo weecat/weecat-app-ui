@@ -4,7 +4,7 @@ export default {
   /**
    * 获取首页右侧边栏热门主题
    */
-  getHotUsers: function (data) {
+  getHotTopics: function (data) {
     return request({
       url: '/api/v1/topics/hot',
       method: 'post',
