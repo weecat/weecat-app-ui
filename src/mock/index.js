@@ -3,3 +3,5 @@
  */
 // 用户数据相关
 require('./api/v1/Users')
+// 主题相关
+require('./api/v1/Topics')
