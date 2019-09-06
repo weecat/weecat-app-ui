@@ -26,7 +26,7 @@
 
             <div class="N-zllist clearfix">
               <div class="N-myzilistbox clearfix">
-                <template v-for="column in columns">
+                <template v-for="column in latestColumns">
                   <dl v-bind:key="column.column_id">
                     <dt>
                       <img class="N-zimg" :src="'http://wenda.wecenter.com'+column.column_pic" style="cursor: pointer;">
@@ -52,29 +52,35 @@
                 </template>
               </div>
               <h6 class="nhref" id="bp_all_more" data-page="1"><i>
-                <img src="http://wenda.wecenter.com/static/css/default/img/href.png"></i>换一换
+                <img src="@/assets/css/default/img/href.png"></i>换一换
               </h6>
               <div class="N-mytitles">
                 <h2><img src="@/assets/css/default/img/np.png">文章</h2>
-                <a href="http://wenda.wecenter.com/article/" class="nckmore">更多&gt;&gt;</a>
+                <a href="/article/1687" class="nckmore">更多&gt;&gt;</a>
               </div>
-
-              <div class="nzllist clearfix">
-                <dl>
-                  <dt><a href="http://wenda.wecenter.com/article/1687"><img
-                    src="@/assets/css/default/img/default-cover.jpg"></a></dt>
-                  <dd>
-                    <h2><a href="http://wenda.wecenter.com/article/1687">wc的成功案例有哪些</a></h2>
-                    <b>朱大老</b>
-                    <span>
-                        <em><i><img
-                          src="@/assets/css/default/img/nz.png"></i> 2</em>
-                        <em><i><img src="@/assets/css/default/img/nsee.png"></i> 327</em>
-                        <em class="ntime">2019-08-14 23:41</em>
+              <template v-for="article in articles">
+                <div v-bind:key="article.article_id" class="nzllist clearfix">
+                  <dl>
+                    <dt>
+                      <a href="/article/1687">
+                        <img :src="'http://wenda.wecenter.com'+article.article_img">
+                      </a>
+                    </dt>
+                    <dd>
+                      <h2>
+                        <a href="http://wenda.wecenter.com/article/1687">{{article.title}}</a>
+                      </h2>
+                      <b>{{article.user.user_name}}</b>
+                      <span>
+                        <em>
+                          <i><img src="@/assets/css/default/img/nz.png"></i> {{article.votes}}</em>
+                          <em><i><img src="@/assets/css/default/img/nsee.png"></i> {{article.views}}</em>
+                          <em class="ntime">{{article.add_time}}</em>
                     </span>
-                  </dd>
-                </dl>
-              </div>
+                    </dd>
+                  </dl>
+                </div>
+              </template>
               <h6 class="nhref" id="article_all_more" data-page="1"><i><img
                 src="@/assets/css/default/img/href.png"></i>换一换</h6>
             </div>
@@ -83,7 +89,7 @@
             <div class="N-tjpop">
               <h2><img src="@/assets/css/default/img/tjpop.png">推荐专栏</h2>
             </div>
-            <template v-for="column in columns">
+            <template v-for="column in hotColumns">
               <div v-bind:key="column.column_id" class="N-poplist">
                 <div class="N-popbox">
                   <em>1</em>
@@ -116,22 +122,43 @@
 
 <script>
   import ColumnsApi from '@/api/ColumnsApi'
+  import ArticlesApi from '@/api/ArticlesApi'
 
   export default {
     name: 'Index',
     data() {
       return {
-        columns: []
+        latestColumns: [],
+        hotColumns: [],
+        articles: []
       }
     },
     created() {
+      this.getLatestColumns()
       this.getHotColumns()
+      this.getLatestArticles()
     },
     methods: {
+      getLatestColumns() {
+        let data = {}
+        ColumnsApi.getLatest(data).then(result => {
+          this.latestColumns = result.data.list
+        }).catch(err => {
+          console.log(err)
+        })
+      },
       getHotColumns() {
         let data = {}
         ColumnsApi.getHotColumns(data).then(result => {
-          this.columns = result.data.list
+          this.hotColumns = result.data.list
+        }).catch(err => {
+          console.log(err)
+        })
+      },
+      getLatestArticles() {
+        let data = {}
+        ArticlesApi.getLatest(data).then(result => {
+          this.articles = result.data.list
         }).catch(err => {
           console.log(err)
         })

@@ -12,3 +12,6 @@ require('./api/v1/Posts')
 
 // 专栏
 require('./api/v1/Columns')
+
+// 文章
+require('./api/v1/Articles')
