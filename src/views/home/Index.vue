@@ -241,67 +241,21 @@
                 <h3>热门用户</h3>
               </div>
               <div class="mod-body">
-
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="http://wenda.wecenter.com/people/15613"><img alt=""
-                                                                          src="http://wenda.wecenter.com/uploads/avatar/000/01/56/13_avatar_mid.jpg"></a>
-                  </dt>
-                  <dd class="pull-left">
-                    <a href="http://wenda.wecenter.com/people/15613" data-id="15613" class="aw-user-name">zengyufly<i
-                      class="icon-v" title="个人认证"></i> </a>
-                    <p class="signature"></p>
-                    <p><b>51</b> 个问题, <b>18</b> 次赞同</p>
-                  </dd>
-                </dl>
-
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="http://wenda.wecenter.com/people/5122"><img alt=""
-                                                                         src="http://wenda.wecenter.com/uploads/avatar/000/00/51/22_avatar_mid.jpg"></a>
-                  </dt>
-                  <dd class="pull-left">
-                    <a href="http://wenda.wecenter.com/people/5122" data-id="5122" class="aw-user-name">tinsn </a>
-                    <p class="signature"></p>
-                    <p><b>14</b> 个问题, <b>5</b> 次赞同</p>
-                  </dd>
-                </dl>
-
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="http://wenda.wecenter.com/people/5139"><img alt=""
-                                                                         src="http://wenda.wecenter.com/uploads/avatar/000/00/51/39_avatar_mid.jpg"></a>
-                  </dt>
-                  <dd class="pull-left">
-                    <a href="http://wenda.wecenter.com/people/5139" data-id="5139" class="aw-user-name">cpder </a>
-                    <p class="signature"></p>
-                    <p><b>8</b> 个问题, <b>3</b> 次赞同</p>
-                  </dd>
-                </dl>
-
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="http://wenda.wecenter.com/people/44940"><img alt=""
-                                                                          src="http://wenda.wecenter.com/uploads/avatar/000/04/49/40_avatar_mid.jpg"></a>
-                  </dt>
-                  <dd class="pull-left">
-                    <a href="http://wenda.wecenter.com/people/44940" data-id="44940" class="aw-user-name">Satyr </a>
-                    <p class="signature"></p>
-                    <p><b>36</b> 个问题, <b>11</b> 次赞同</p>
-                  </dd>
-                </dl>
-
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="http://wenda.wecenter.com/people/6831"><img alt=""
-                                                                         src="http://wenda.wecenter.com/uploads/avatar/000/00/68/31_avatar_mid.jpg"></a>
-                  </dt>
-                  <dd class="pull-left">
-                    <a href="http://wenda.wecenter.com/people/6831" data-id="6831" class="aw-user-name">MBAanli_com </a>
-                    <p class="signature"></p>
-                    <p><b>67</b> 个问题, <b>22</b> 次赞同</p>
-                  </dd>
-                </dl>
+                <template v-for="user in hotUsers">
+                  <dl v-bind:key="user.userId">
+                    <dt class="pull-left aw-border-radius-5">
+                      <a :href="'/people/15613'+user.userId">
+                        <img :src="'http://wenda.wecenter.com'+user.avatar"></a>
+                    </dt>
+                    <dd class="pull-left">
+                      <a :href="'/people/15613'+user.userId" class="aw-user-name">{{user.username}}
+                        <i class="icon-v" title="个人认证"></i>
+                      </a>
+                      <p class="signature"></p>
+                      <p><b>{{user.questions}}</b> 个问题, <b>{{user.stars}}</b> 次赞同</p>
+                    </dd>
+                  </dl>
+                </template>
               </div>
             </div>
           </div>
@@ -314,7 +268,50 @@
 
 <script>
   export default {
-    name: 'Index'
+    name: 'Index',
+    data() {
+      return {
+        content: [{
+          'question_id': '1',
+          'question_content': '',
+          'add_time': '',
+          'update_time': '',
+          'answer_count': '',
+          'agree_count': ''
+        }],
+        hotUsers: [{
+          userId: 15613,
+          username: 'zengyufly',
+          avatar: '/uploads/avatar/000/01/56/13_avatar_mid.jpg',
+          questions: 51,
+          stars: 18
+        }, {
+          userId: 15614,
+          username: 'tinsn',
+          avatar: '/uploads/avatar/000/00/51/22_avatar_mid.jpg',
+          questions: 14,
+          stars: 5
+        }, {
+          userId: 15615,
+          username: 'cpder',
+          avatar: '/uploads/avatar/000/00/51/39_avatar_mid.jpg',
+          questions: 8,
+          stars: 3
+        }, {
+          userId: 15616,
+          username: 'Satyr',
+          avatar: '/uploads/avatar/000/04/49/40_avatar_mid.jpg',
+          questions: 36,
+          stars: 11
+        }, {
+          userId: 15617,
+          username: 'MBAanli_com',
+          avatar: '/uploads/avatar/000/00/68/31_avatar_mid.jpg',
+          questions: 67,
+          stars: 22
+        }]
+      }
+    }
   }
 </script>
 
