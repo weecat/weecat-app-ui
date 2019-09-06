@@ -267,6 +267,8 @@
 </template>
 
 <script>
+  import UsersApi from '@/api/UsersApi'
+
   export default {
     name: 'Index',
     data() {
@@ -279,37 +281,20 @@
           'answer_count': '',
           'agree_count': ''
         }],
-        hotUsers: [{
-          userId: 15613,
-          username: 'zengyufly',
-          avatar: '/uploads/avatar/000/01/56/13_avatar_mid.jpg',
-          questions: 51,
-          stars: 18
-        }, {
-          userId: 15614,
-          username: 'tinsn',
-          avatar: '/uploads/avatar/000/00/51/22_avatar_mid.jpg',
-          questions: 14,
-          stars: 5
-        }, {
-          userId: 15615,
-          username: 'cpder',
-          avatar: '/uploads/avatar/000/00/51/39_avatar_mid.jpg',
-          questions: 8,
-          stars: 3
-        }, {
-          userId: 15616,
-          username: 'Satyr',
-          avatar: '/uploads/avatar/000/04/49/40_avatar_mid.jpg',
-          questions: 36,
-          stars: 11
-        }, {
-          userId: 15617,
-          username: 'MBAanli_com',
-          avatar: '/uploads/avatar/000/00/68/31_avatar_mid.jpg',
-          questions: 67,
-          stars: 22
-        }]
+        hotUsers: []
+      }
+    },
+    created() {
+      this.getHotUsers()
+    },
+    methods: {
+      getHotUsers() {
+        let data = {}
+        UsersApi.getHotUsers(data).then(result => {
+          this.hotUsers = result.data.list
+        }).catch(err => {
+          console.log(err)
+        })
       }
     }
   }
