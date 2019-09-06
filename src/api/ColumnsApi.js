@@ -21,5 +21,16 @@ export default {
       method: 'post',
       data: data
     })
+  },
+  /**
+   * 获取专栏下的文章
+   * @param data
+   */
+  getArticles: function (data) {
+    return request({
+      url: '/api/v1/column/articles',
+      method: 'post',
+      data: data
+    })
   }
 }

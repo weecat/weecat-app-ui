@@ -16,8 +16,12 @@ export default new Router({
       component: () => import('@/views/home/Index')
     }, {
       path: 'column',
-      name: 'Column',
+      name: 'Columns',
       component: () => import('@/views/column/Index')
+    }, {
+      path: 'column/details/:id(\\d+)',
+      name: 'ColumnDetails',
+      component: () => import('@/views/column/Details')
     }]
   }]
 })
