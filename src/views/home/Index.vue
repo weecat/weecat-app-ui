@@ -73,8 +73,13 @@
                   <template v-for="question in questions">
                     <div v-bind:key="question.question_id" class="aw-item " data-topic-id="78,2078,3851,3792,">
                       <a class="aw-user-name hidden-xs" href="/people/45510" rel="nofollow">
-                        <img src="http://wenda.wecenter.com/uploads/avatar/000/04/55/10_avatar_max.jpg" alt="">
-                        <i class="icon icon-v"></i>
+                        <img :src="'http://wenda.wecenter.com'+question.user_info.avatar">
+                        <template v-if="question.user_info.verified==='enterprise'">
+                          <i class="icon icon-v i-ve"></i>
+                        </template>
+                        <template v-else>
+                          <i class="icon icon-v"></i>
+                        </template>
                       </a>
                       <div class="aw-question-content">
                         <h4>
@@ -91,9 +96,9 @@
                         <p>
                           <a class="aw-question-tags" href="http://wenda.wecenter.com/explore/category-2">WeCenter
                             程序</a>
-                          <a href="/people/50813" class="aw-user-name">cc碳子</a>
+                          <a href="/people/50813" class="aw-user-name">{{question.user_info.user_name}}</a>
                           <span class="text-color-999">
-                            回复了问题 14 人关注 • {{question.answer_count}} 个回复  {{question.answer_count}} 次浏览  {{question.add_time}}
+                            回复了问题 14 人关注 • {{question.comments}} 个回复  {{question.views}} 次浏览  {{question.add_time}}
                           </span>
                           <span class="text-color-999 related-topic collapse"> 来自相关话题</span>
                         </p>
