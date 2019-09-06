@@ -9,3 +9,6 @@ require('./api/v1/Topics')
 
 // 问题和文章相关
 require('./api/v1/Posts')
+
+// 专栏
+require('./api/v1/Columns')
