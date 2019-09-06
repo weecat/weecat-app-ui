@@ -248,11 +248,19 @@
                         <img :src="'http://wenda.wecenter.com'+user.avatar"></a>
                     </dt>
                     <dd class="pull-left">
-                      <a :href="'/people/15613'+user.userId" class="aw-user-name">{{user.username}}
-                        <i class="icon-v" title="个人认证"></i>
+                      <a :href="'/people/15613'+user.userId" class="aw-user-name">{{user.user_name}}
+                        <template v-if="user.verified==='enterprise'">
+                          <i class="icon-v i-ve" title="企业认证"></i>
+                        </template>
+                        <template v-else>
+                          <i class="icon-v" title="个人认证"></i>
+                        </template>
                       </a>
                       <p class="signature"></p>
-                      <p><b>{{user.questions}}</b> 个问题, <b>{{user.stars}}</b> 次赞同</p>
+                      <p>
+                        <b>{{user.answer_count}}</b> 个问题,
+                        <b>{{user.agree_count}}</b> 次赞同
+                      </p>
                     </dd>
                   </dl>
                 </template>
