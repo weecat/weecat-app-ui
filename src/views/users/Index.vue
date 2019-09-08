@@ -84,16 +84,11 @@
                   关注 <em class="aw-text-color-blue">17</em> 人
                 </span>
                 <p>
-                  <a class="aw-user-name" data-id="10666" href="http://wenda.wecenter.com/people/10666"><img
-                    src="http://wenda.wecenter.com/uploads/avatar/000/01/06/66_avatar_mid.jpg" alt="小姐请别说爱"></a>
-                  <a class="aw-user-name" data-id="26725" href="http://wenda.wecenter.com/people/26725"><img
-                    src="http://wenda.wecenter.com/uploads/avatar/000/02/67/25_avatar_mid.jpg" alt="三叔"></a>
-                  <a class="aw-user-name" data-id="45510" href="http://wenda.wecenter.com/people/45510"><img
-                    src="http://wenda.wecenter.com/uploads/avatar/000/04/55/10_avatar_mid.jpg" alt="xiubao"></a>
-                  <a class="aw-user-name" data-id="50522" href="http://wenda.wecenter.com/people/50522"><img
-                    src="http://wenda.wecenter.com/uploads/avatar/000/05/05/22_avatar_mid.jpg" alt="龙牙"></a>
-                  <a class="aw-user-name" data-id="50520" href="http://wenda.wecenter.com/people/50520"><img
-                    src="/data/webroot/wecenter/index.php" alt="test0000000"></a>
+                  <template v-for="user in followings">
+                    <a v-bind:key="user.userId" class="aw-user-name" :href="'/people/'+user.userId">
+                      <img :src="'http://wenda.wecenter.com'+user.avatar" :alt="user.user_name">
+                    </a>
+                  </template>
                 </p>
               </div>
             </div>
@@ -104,8 +99,11 @@
                   被 <em class="aw-text-color-blue">1</em> 人关注
                 </span>
                 <p>
-                  <a class="aw-user-name" data-id="16295" href="http://wenda.wecenter.com/people/16295"><img
-                    src="http://wenda.wecenter.com/uploads/avatar/000/01/62/95_avatar_mid.jpg" alt="先知"></a>
+                  <template v-for="user in followers">
+                    <a v-bind:key="user.userId" class="aw-user-name" :href="'/people/'+user.userId">
+                      <img :src="'http://wenda.wecenter.com'+user.avatar" :alt="user.user_name">
+                    </a>
+                  </template>
                 </p>
               </div>
 
@@ -131,9 +129,41 @@
 </template>
 <script>
   import '@/assets/css/default/user.css'
+
+  import UserApi from '@/api/UserApi'
+
   export default {
     name: 'Users',
-    components: {}
+    components: {},
+    data() {
+      return {
+        followings: [],
+        followers: [],
+        hotUsers: []
+      }
+    },
+    created() {
+      this.getMyFollowings()
+      this.getMyFollowers()
+    },
+    methods: {
+      getMyFollowings() {
+        let data = {}
+        UserApi.getMyFollowings(data).then(result => {
+          this.followings = result.data.list
+        }).catch(err => {
+          console.log(err)
+        })
+      },
+      getMyFollowers() {
+        let data = {}
+        UserApi.getMyFollowers(data).then(result => {
+          this.followers = result.data.list
+        }).catch(err => {
+          console.log(err)
+        })
+      }
+    }
   }
 </script>
 

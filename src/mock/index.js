@@ -15,3 +15,6 @@ require('./api/v1/Columns')
 
 // 文章
 require('./api/v1/Articles')
+
+// 用户部分
+require('./api/v1/User')
