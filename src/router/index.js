@@ -30,6 +30,11 @@ export default new Router({
       path: 'topic',
       name: 'Topics',
       component: () => import('@/views/topic/Index')
+    }, {
+      path: 'users',
+      name: 'Users',
+      component: () => import('@/views/users/Index'),
+      children: []
     }]
   }]
 })
