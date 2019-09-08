@@ -35,6 +35,11 @@ export default new Router({
       name: 'Users',
       component: () => import('@/views/users/Index'),
       children: []
+    }, {
+      path: 'setting',
+      name: 'Setting',
+      component: () => import('@/views/setting/Index'),
+      children: []
     }]
   }]
 })
