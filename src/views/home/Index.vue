@@ -70,78 +70,52 @@
             <div class="aw-mod aw-explore-list">
               <div class="mod-body">
                 <div class="aw-common-list">
-                  <div class="aw-item " data-topic-id="78,2078,3851,3792,">
-                    <a class="aw-user-name hidden-xs" href="/people/45510" rel="nofollow">
-                      <img src="http://wenda.wecenter.com/uploads/avatar/000/04/55/10_avatar_max.jpg" alt="">
-                      <i class="icon icon-v"></i>
-                    </a>
-                    <div class="aw-question-content">
-                      <h4>
-                        <a href="/question/32565">WeCenter官网小程序发布，欢迎大家试用吐槽.....</a>
-                        <span
-                          style="font-style: normal; background: #FF7F00; color: #ffffff; font-size: 12px;  padding: 2px 8px; border-radius: 3px;">
-                          置顶
-                        </span>
-                      </h4>
-                      <div class="pull-right hidden-xs contribute">
-                        <span class="pull-right text-color-999">贡献</span>
-                        <a class="aw-user-name" href="/people/2" rel="nofollow">
-                          <img src="http://wenda.wecenter.com/uploads/avatar/000/00/00/02_avatar_mid.jpg" alt="">
-                        </a>
-                        <a class="aw-user-name" href="/people/17117" rel="nofollow">
-                          <img src="http://wenda.wecenter.com/uploads/avatar/000/01/71/17_avatar_mid.jpg" alt=""></a>
+                  <template v-for="question in questions">
+                    <div v-bind:key="question.question_id" class="aw-item " data-topic-id="78,2078,3851,3792,">
+                      <a class="aw-user-name hidden-xs" href="/people/45510" rel="nofollow">
+                        <img :src="'http://wenda.wecenter.com'+question.user_info.avatar">
+                        <template v-if="question.user_info.verified==='enterprise'">
+                          <i class="icon icon-v i-ve"></i>
+                        </template>
+                        <template v-else>
+                          <i class="icon icon-v"></i>
+                        </template>
+                      </a>
+                      <div class="aw-question-content">
+                        <h4>
+                          <a :href="'/question/'+question.question_id">{{question.question_content}}</a>
+                        </h4>
+                        <div class="pull-right hidden-xs contribute">
+                          <span class="pull-right text-color-999">贡献</span>
+                          <template v-for="user in question.answer_users">
+                            <a v-bind:key="user.uid" class="aw-user-name" :href="'/people/'+user.uid" rel="nofollow">
+                              <img :src="'http://wenda.wecenter.com'+user.avatar" alt="">
+                            </a>
+                          </template>
+                        </div>
+                        <p>
+                          <a class="aw-question-tags" href="http://wenda.wecenter.com/explore/category-2">WeCenter
+                            程序</a>
+                          <a href="/people/50813" class="aw-user-name">{{question.user_info.user_name}}</a>
+                          <span class="text-color-999">
+                            回复了问题 14 人关注 • {{question.comments}} 个回复  {{question.views}} 次浏览  {{question.add_time}}
+                          </span>
+                          <span class="text-color-999 related-topic collapse"> 来自相关话题</span>
+                        </p>
                       </div>
-                      <p>
-                        <a class="aw-question-tags" href="/explore/category-2">WeCenter 程序</a>
-                        • <a href="/people/50813" class="aw-user-name">cc碳子</a>
-                        <span
-                          class="text-color-999">回复了问题 • 14 人关注 • 11 个回复 • 1649 次浏览 • 2019-08-18 15:27</span>
-                        <span class="text-color-999 related-topic collapse"> • 来自相关话题</span>
-                      </p>
                     </div>
-                  </div>
-                  <div class="aw-item" data-topic-id="2078,3853,">
-                    <a class="aw-user-name hidden-xs" href="/people/45510" rel="nofollow">
-                      <img src="http://wenda.wecenter.com/uploads/avatar/000/04/55/10_avatar_max.jpg" alt="">
-                      <i class="icon icon-v"></i>
-                    </a>
-                    <div class="aw-question-content">
-                      <h4>
-                        <a href="/question/32569">WeCenter3.3.3版本发布...</a>
-                        <span
-                          style="font-style: normal; background: #FF7F00; color: #ffffff; font-size: 12px;  padding: 2px 8px; border-radius: 3px;">
-                          置顶
-                        </span>
-                      </h4>
-                      <div class="pull-right hidden-xs contribute">
-                        <span class="pull-right text-color-999">贡献</span>
-                        <a class="aw-user-name" href="/people/44836"
-                           rel="nofollow">
-                          <img src="http://wenda.wecenter.com/static/common/avatar-mid-img.png" alt=""></a>
-                        <a class="aw-user-name" href="/people/50629"
-                           rel="nofollow">
-                          <img src="http://wenda.wecenter.com/uploads/avatar/000/05/06/29_avatar_mid.jpg" alt="">
-                        </a>
-                      </div>
-                      <p>
-                        <a class="aw-question-tags" href="/explore/category-2">WeCenter 程序</a>
-                        • <a href="/people/3583" class="aw-user-name" data-id="3583">小宾</a>
-                        <span class="text-color-999">回复了问题 • 18 人关注 • 14 个回复 • 1383 次浏览 • 6 天前</span>
-                        <span class="text-color-999 related-topic collapse"> • 来自相关话题</span>
-                      </p>
-                    </div>
-                  </div>
+                  </template>
                 </div>
               </div>
               <div class="mod-footer">
                 <div class="page-control">
                   <ul class="pagination pull-right">
                     <li class="active"><a href="javascript:;">1</a></li>
-                    <li><a href="/sort_type-new__day-0__is_recommend-0__page-2">2</a></li>
-                    <li><a href="/sort_type-new__day-0__is_recommend-0__page-3">3</a></li>
-                    <li><a href="/sort_type-new__day-0__is_recommend-0__page-4">4</a></li>
-                    <li><a href="/sort_type-new__day-0__is_recommend-0__page-2">&gt;</a></li>
-                    <li><a href="/sort_type-new__day-0__is_recommend-0__page-2762">&gt;&gt;</a>
+                    <li><a href="http://wenda.wecenter.com/sort_type-new__day-0__is_recommend-0__page-2">2</a></li>
+                    <li><a href="http://wenda.wecenter.com/sort_type-new__day-0__is_recommend-0__page-3">3</a></li>
+                    <li><a href="http://wenda.wecenter.com/sort_type-new__day-0__is_recommend-0__page-4">4</a></li>
+                    <li><a href="http://wenda.wecenter.com/sort_type-new__day-0__is_recommend-0__page-2">&gt;</a></li>
+                    <li><a href="http://wenda.wecenter.com/sort_type-new__day-0__is_recommend-0__page-2762">&gt;&gt;</a>
                     </li>
                   </ul>
                 </div>
@@ -156,156 +130,54 @@
                 <h3>热门话题</h3>
               </div>
               <div class="mod-body">
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="/topic/2078">
-                      <img src="http://wenda.wecenter.com/uploads/topic/20130426/8af6e6165dbba47be9a1f4374f9e0c92_50_50.png">
-                    </a>
-                  </dt>
-                  <dd class="pull-left">
-                    <p class="clearfix">
+                <template v-for="topic in hotTopics">
+                  <dl v-bind:key="topic.topic_id">
+                    <dt class="pull-left aw-border-radius-5">
+                      <a :href="'/topic/'+topic.topic_id">
+                        <img :src="'http://wenda.wecenter.com'+topic.topic_pic">
+                      </a>
+                    </dt>
+                    <dd class="pull-left">
+                      <p class="clearfix">
                       <span class="topic-tag">
-                        <a href="/topic/2078" class="text">wecenter</a>
+                        <a :href="'/topic/'+topic.topic_id" class="text" data-id="2078">{{topic.topic_title}}</a>
                       </span>
-                    </p>
-                    <p><b>1089</b> 个问题, <b>479</b> 人关注</p>
-                  </dd>
-                </dl>
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="/topic/5">
-                      <img
-                        src="http://wenda.wecenter.com/uploads/topic/20141017/351c5c209f031176b2febc73b0d07eae_50_50.png">
-                    </a>
-                  </dt>
-                  <dd class="pull-left">
-                    <p class="clearfix">
-                      <span class="topic-tag">
-                        <a href="/topic/5" class="text" data-id="5">bug</a>
-                      </span>
-                    </p>
-                    <p><b>1846</b> 个问题, <b>537</b> 人关注</p>
-                  </dd>
-                </dl>
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="/topic/9">
-                      <img src="http://wenda.wecenter.com/uploads/topic/20120618/133998172218_50_50.jpg">
-                    </a>
-                  </dt>
-                  <dd class="pull-left">
-                    <p class="clearfix">
-                      <span class="topic-tag">
-                        <a href="/topic/9" class="text" data-id="9">功能</a>
-                      </span>
-                    </p>
-                    <p><b>259</b> 个问题, <b>93</b> 人关注</p>
-                  </dd>
-                </dl>
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="/topic/145">
-                      <img src="http://wenda.wecenter.com/static/common/topic-mid-img.png">
-                    </a>
-                  </dt>
-                  <dd class="pull-left">
-                    <p class="clearfix">
-                    <span class="topic-tag">
-                      <a href="/topic/145" class="text" data-id="145">新版本</a>
-                    </span>
-                    </p>
-                    <p><b>138</b> 个问题, <b>46</b> 人关注</p>
-                  </dd>
-                </dl>
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="/topic/4">
-                      <img src="http://wenda.wecenter.com/uploads/topic/20120614/133963648400_50_50.jpg">
-                    </a>
-                  </dt>
-                  <dd class="pull-left">
-                    <p class="clearfix">
-                      <span class="topic-tag">
-                        <a href="/topic/4" class="text" data-id="4">ucenter</a>
-                      </span>
-                    </p>
-                    <p><b>192</b> 个问题, <b>106</b> 人关注</p>
-                  </dd>
-                </dl>
+                      </p>
+                      <p><b>{{topic.discuss_count}}</b> 个问题, <b>{{topic.focus_count}}</b> 人关注</p>
+                    </dd>
+                  </dl>
+                </template>
               </div>
             </div>
             <div class="aw-mod aw-text-align-justify">
               <div class="mod-head">
-                <a href="/people/" class="pull-right">更多 &gt;</a>
+                <a href="http://wenda.wecenter.com/people/" class="pull-right">更多 &gt;</a>
                 <h3>热门用户</h3>
               </div>
               <div class="mod-body">
-
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="/people/15613">
-                      <img src="http://wenda.wecenter.com/uploads/avatar/000/01/56/13_avatar_mid.jpg">
-                    </a>
-                  </dt>
-                  <dd class="pull-left">
-                    <a href="/people/15613" class="aw-user-name">zengyufly
-                      <i class="icon-v" title="个人认证"></i>
-                    </a>
-                    <p class="signature"></p>
-                    <p><b>51</b> 个问题, <b>18</b> 次赞同</p>
-                  </dd>
-                </dl>
-
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="/people/5122">
-                      <img src="http://wenda.wecenter.com/uploads/avatar/000/00/51/22_avatar_mid.jpg">
-                    </a>
-                  </dt>
-                  <dd class="pull-left">
-                    <a href="/people/5122" class="aw-user-name">tinsn </a>
-                    <p class="signature"></p>
-                    <p><b>14</b> 个问题, <b>5</b> 次赞同</p>
-                  </dd>
-                </dl>
-
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="/people/5139">
-                      <img src="http://wenda.wecenter.com/uploads/avatar/000/00/51/39_avatar_mid.jpg">
-                    </a>
-                  </dt>
-                  <dd class="pull-left">
-                    <a href="/people/5139" data-id="5139" class="aw-user-name">cpder </a>
-                    <p class="signature"></p>
-                    <p><b>8</b> 个问题, <b>3</b> 次赞同</p>
-                  </dd>
-                </dl>
-
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="/people/44940">
-                      <img src="http://wenda.wecenter.com/uploads/avatar/000/04/49/40_avatar_mid.jpg"></a>
-                  </dt>
-                  <dd class="pull-left">
-                    <a href="/people/44940" data-id="44940" class="aw-user-name">Satyr</a>
-                    <p class="signature"></p>
-                    <p><b>36</b> 个问题, <b>11</b> 次赞同</p>
-                  </dd>
-                </dl>
-
-                <dl>
-                  <dt class="pull-left aw-border-radius-5">
-                    <a href="/people/6831">
-                      <img src="http://wenda.wecenter.com/uploads/avatar/000/00/68/31_avatar_mid.jpg">
-                    </a>
-                  </dt>
-                  <dd class="pull-left">
-                    <a href="/people/6831" data-id="6831" class="aw-user-name">MBAanli_com </a>
-                    <p class="signature"></p>
-                    <p><b>67</b> 个问题, <b>22</b> 次赞同</p>
-                  </dd>
-                </dl>
+                <template v-for="user in hotUsers">
+                  <dl v-bind:key="user.userId">
+                    <dt class="pull-left aw-border-radius-5">
+                      <a :href="'/people/15613'+user.userId">
+                        <img :src="'http://wenda.wecenter.com'+user.avatar"></a>
+                    </dt>
+                    <dd class="pull-left">
+                      <a :href="'/people/15613'+user.userId" class="aw-user-name">{{user.user_name}}
+                        <template v-if="user.verified==='enterprise'">
+                          <i class="icon-v i-ve" title="企业认证"></i>
+                        </template>
+                        <template v-else>
+                          <i class="icon-v" title="个人认证"></i>
+                        </template>
+                      </a>
+                      <p class="signature"></p>
+                      <p>
+                        <b>{{user.answer_count}}</b> 个问题,
+                        <b>{{user.agree_count}}</b> 次赞同
+                      </p>
+                    </dd>
+                  </dl>
+                </template>
               </div>
             </div>
           </div>
@@ -317,8 +189,58 @@
 </template>
 
 <script>
+  import UsersApi from '@/api/UsersApi'
+  import TopicsApi from '@/api/TopicsApi'
+  import PostsApi from '@/api/PostsApi'
+
   export default {
-    name: 'Index'
+    name: 'Index',
+    data() {
+      return {
+        content: [{
+          'question_id': '1',
+          'question_content': '',
+          'add_time': '',
+          'update_time': '',
+          'answer_count': '',
+          'agree_count': ''
+        }],
+        questions: [],
+        hotTopics: [],
+        hotUsers: []
+      }
+    },
+    created() {
+      this.getExplore()
+      this.getHotUsers()
+      this.getHotTopics()
+    },
+    methods: {
+      getExplore() {
+        let data = {}
+        PostsApi.getExplore(data).then(result => {
+          this.questions = result.data.list
+        }).catch(err => {
+          console.log(err)
+        })
+      },
+      getHotUsers() {
+        let data = {}
+        UsersApi.getHotUsers(data).then(result => {
+          this.hotUsers = result.data.list
+        }).catch(err => {
+          console.log(err)
+        })
+      },
+      getHotTopics() {
+        let data = {}
+        TopicsApi.getHotTopics(data).then(result => {
+          this.hotTopics = result.data.list
+        }).catch(err => {
+          console.log(err)
+        })
+      }
+    }
   }
 </script>
 

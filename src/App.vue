@@ -10,6 +10,7 @@ import '@/assets/css/icon.css'
 import '@/assets/css/default/common.css'
 import '@/assets/css/default/link.css'
 import '@/assets/js/plug_module/style.css'
+import '@/assets/css/default/nindex.css'
 
 export default {
   name: 'App'
