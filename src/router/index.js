@@ -22,6 +22,14 @@ export default new Router({
       path: 'column/details/:id(\\d+)',
       name: 'ColumnDetails',
       component: () => import('@/views/column/Details')
+    }, {
+      path: 'explore',
+      name: 'Explore',
+      component: () => import('@/views/home/Index')
+    }, {
+      path: 'topic',
+      name: 'Topics',
+      component: () => import('@/views/topic/Index')
     }]
   }]
 })

@@ -37,14 +37,21 @@
         </div>
         <nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/column/"><i class="icon icon-column"></i> 专栏</a></li>
             <li>
-              <a href="#" class="active">
-                <i class="icon icon-list"></i> 发现
-              </a>
+              <router-link to="/column" active-class="active">
+                <i class="icon icon-column"></i> 专栏
+              </router-link>
             </li>
-            <li><a href="/topic"><i class="icon icon-topic"></i> 话题</a></li>
-            <li><a href="/"><i class=""></i> 应用市场</a></li>
+            <li>
+              <router-link to="/explore" active-class="active">
+                <i class="icon icon-list"></i> 发现
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/topic" active-class="active">
+                <i class="icon icon-topic"></i> 话题
+              </router-link>
+            </li>
             <li>
               <a style="font-weight:bold;">· · ·</a>
               <div class="dropdown-list pull-right">
