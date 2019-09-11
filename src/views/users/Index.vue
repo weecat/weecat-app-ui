@@ -35,16 +35,33 @@
               </div>
               <div class="mod-footer">
                 <ul class="nav nav-tabs aw-nav-tabs">
-                  <li class="active"><a href="#overview" id="page_overview" data-toggle="tab">概述</a></li>
-                  <li><a href="#questions" id="page_questions" data-toggle="tab">发问<span class="badge">0</span></a></li>
-                  <li><a href="#answers" id="page_answers" data-toggle="tab">回复<span class="badge">0</span></a></li>
-                  <li><a href="#articles" id="page_articles" data-toggle="tab">文章<span class="badge">0</span></a></li>
-                  <li><a href="#focus" id="page_focus" data-toggle="tab">关注</a></li>
-                  <li><a href="#actions" id="page_actions" data-toggle="tab">动态</a></li>
-                  <!-- <li><a href="#detail" id="page_detail" data-toggle="tab">详细资料</a></li> -->
-                  <li><a href="#integral" id="page_integral" data-toggle="tab">我的积分</a></li>
-                  <li><a href="#orders" id="page_order" data-toggle="tab">交易订单</a></li>
-                  <li><a href="#withdraw" id="page_withdraw" data-toggle="tab">提现记录</a></li>
+                  <router-link to="/users/overview" tag="li" active-class="active">
+                    <a href="javascript:void(0);">概述</a>
+                  </router-link>
+                  <router-link to="/users/questions" tag="li">
+                    <a href="javascript:void(0);">发问<span class="badge">0</span></a>
+                  </router-link>
+                  <router-link to="/users/answers" tag="li">
+                    <a href="javascript:void(0);">回复<span class="badge">0</span></a>
+                  </router-link>
+                  <router-link to="/users/articles" tag="li">
+                    <a href="javascript:void(0);">文章<span class="badge">0</span></a>
+                  </router-link>
+                  <router-link to="/users/focus" tag="li">
+                    <a href="javascript:void(0);">关注</a>
+                  </router-link>
+                  <router-link to="/users/actions" tag="li">
+                    <a href="javascript:void(0);">动态</a>
+                  </router-link>
+                  <router-link to="/users/integral" tag="li">
+                    <a href="javascript:void(0);">我的积分</a>
+                  </router-link>
+                  <router-link to="/users/orders" tag="li">
+                    <a href="javascript:void(0);">交易订单</a>
+                  </router-link>
+                  <router-link to="/users/withdraw" tag="li">
+                    <a href="javascript:void(0);">提现记录</a>
+                  </router-link>
                 </ul>
               </div>
             </div>
@@ -52,6 +69,7 @@
 
             <div class="aw-user-center-tab">
               <div class="tab-content">
+                <router-view></router-view>
                 <!--Overview-->
                 <!--Overview-END-->
                 <!--questions-->

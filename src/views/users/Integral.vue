@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-pane" id="integral">
+  <div class="tab-pane active">
     <div class="aw-mod">
       <div class="mod-head">
         <h3><i class="icon icon-point"></i>我的积分</h3>

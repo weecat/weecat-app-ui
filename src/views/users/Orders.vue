@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-pane" id="orders">
+  <div class="tab-pane active">
     <div class="aw-mod">
       <div class="mod-head">
         <h3><i class="icon icon-point"></i>我的交易</h3>
@@ -23,7 +23,7 @@
       </div>
       <div class="mod-footer">
         <!-- 加载更多内容 -->
-        <a class="aw-load-more-content disabled" id="bp_user_orders_more" data-page="0">
+        <a class="aw-load-more-content disabled">
           <span>没有更多了</span>
         </a>
         <!-- end 加载更多内容 -->

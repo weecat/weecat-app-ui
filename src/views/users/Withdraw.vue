@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-pane" id="withdraw">
+  <div class="tab-pane active">
     <div class="aw-mod">
       <div class="mod-head">
         <h3><i class="icon icon-point"></i>交易记录</h3>

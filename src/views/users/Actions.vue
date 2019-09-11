@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-pane" id="actions">
+  <div class="tab-pane active">
     <div class="aw-mod">
       <div class="mod-head">
         <h3>最新动态</h3>

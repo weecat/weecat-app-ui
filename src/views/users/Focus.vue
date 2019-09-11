@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-pane" id="focus">
+  <div class="tab-pane active">
     <!-- 自定义切换 -->
     <div class="aw-mod">
       <div class="aw-tabs text-center">
