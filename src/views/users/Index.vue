@@ -148,7 +148,7 @@
 <script>
   import '@/assets/css/default/user.css'
 
-  import UserApi from '@/api/UserApi'
+  import UserApi from '@/api/user/UserApi'
 
   export default {
     name: 'Users',

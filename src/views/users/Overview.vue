@@ -7,7 +7,23 @@
       </div>
       <div class="mod-body">
         <div class="aw-profile-answer-list">
-          <p class="padding10 text-center">没有内容</p>
+          <template v-for="answer in answers">
+            <div v-bind:key="answer.id" class="aw-item">
+              <div class="mod-head">
+                <h4><a href="#">{{answer.title}}</a></h4>
+              </div>
+              <div class="mod-body">
+                <span class="aw-border-radius-5 count pull-left">
+                  <i class="icon icon-agree"></i>
+                  {{answer.answer_info.agree_count}}
+                </span>
+                <p class="aw-hide-txt">{{answer.answer_info.answer_content}}</p>
+              </div>
+            </div>
+          </template>
+          <template v-if="answers.length === 0">
+            <p class="padding10 text-center">没有内容</p>
+          </template>
         </div>
       </div>
     </div>
@@ -20,6 +36,19 @@
       </div>
       <div class="mod-body">
         <div class="aw-profile-publish-list">
+          <div class="aw-item">
+            <div class="aw-mod">
+              <div class="mod-head">
+                <h4 class="aw-hide-txt">
+                  <a href="http://wenda.wecenter.com/question/32632">有api接口么</a>
+                </h4>
+              </div>
+              <div class="mod-body">
+                <span class="aw-border-radius-5 count pull-left"><i class="icon icon-reply"></i>0</span>
+                <p class="text-color-999">14 次浏览 • 1 个关注 • 7 小时前</p>
+              </div>
+            </div>
+          </div>
           <p class="padding10 text-center">没有内容</p>
         </div>
       </div>
@@ -40,9 +69,29 @@
 </template>
 
 <script>
-    export default {
-        name: 'Overview'
+  import UserAnswersApi from '@/api/user/UserAnswersApi'
+
+  export default {
+    name: 'Overview',
+    data() {
+      return {
+        answers: []
+      }
+    },
+    created() {
+      this.getAnswers()
+    },
+    methods: {
+      getAnswers() {
+        let data = {}
+        UserAnswersApi.getAnswers(data).then(result => {
+          this.answers = result.data.list
+        }).catch(err => {
+          console.log(err)
+        })
+      }
     }
+  }
 </script>
 
 <style scoped>

@@ -18,3 +18,5 @@ require('./api/v1/Articles')
 
 // 用户部分
 require('./api/v1/User')
+require('./api/v1/user/UserAnswersMock.js')
+require('./api/v1/user/UserQuestionsMock.js')
