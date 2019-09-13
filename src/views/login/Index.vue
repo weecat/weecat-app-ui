@@ -6,7 +6,7 @@
           <div class="content pull-left">
             <h1 class="logo"><a href="#"></a></h1>
             <h2>WeeCat 社交化问答社区程序</h2>
-            <form id="login_form" action="/account/ajax/login_process/">
+            <form id="login_form">
               <ul>
                 <li>
                   <input type="text" class="form-control" placeholder="邮箱/手机号/用户名" name="user_name"/>
