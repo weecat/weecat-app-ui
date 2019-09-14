@@ -56,9 +56,9 @@
                 <h2><img src="@/assets/css/default/img/np.png">文章</h2>
                 <a href="/article/1687" class="nckmore">更多&gt;&gt;</a>
               </div>
-              <template v-for="article in articles">
-                <div v-bind:key="article.article_id" class="nzllist">
-                  <dl>
+              <div class="nzllist">
+                <template v-for="article in articles">
+                  <dl v-bind:key="article.article_id">
                     <dt>
                       <a href="/article/1687">
                         <img :src="'http://wenda.wecenter.com'+article.article_img">
@@ -77,10 +77,10 @@
                     </span>
                     </dd>
                   </dl>
-                </div>
-              </template>
+                </template>
+              </div>
               <!--<h6 class="nhref" id="article_all_more" data-page="1"><i><img-->
-                <!--src="@/assets/css/default/img/href.png"></i>换一换</h6>-->
+              <!--src="@/assets/css/default/img/href.png"></i>换一换</h6>-->
             </div>
           </div>
           <div class="N-right clearfix">
@@ -166,5 +166,11 @@
 </script>
 
 <style scoped>
+  .N-myzilistbox dl {
+    margin: 3px;
+  }
 
+  .nzllist dl {
+    margin: 5px;
+  }
 </style>
