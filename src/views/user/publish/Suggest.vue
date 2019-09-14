@@ -42,7 +42,7 @@
             <div class="aw-mod aw-editor-box">
               <div class="mod-head">
                 <div class="wmd-panel">
-                  <textarea style="display: none;" id="wangcontent" rows="15" name="message"></textarea>
+                  <vue-wangeditor id="editor" :menus="menus" width="100%" v-model="text"></vue-wangeditor>
                 </div>
               </div>
               <div class="mod-body">
@@ -110,8 +110,52 @@
 </template>
 
 <script>
+  import vueWangeditor from 'vue-wangeditor'
+
   export default {
-    name: 'Suggest'
+    name: 'Suggest',
+    data() {
+      return {
+        text: '',
+        menus: [
+          'source',
+          '|',
+          'bold',
+          'underline',
+          'italic',
+          'strikethrough',
+          'eraser',
+          'forecolor',
+          'bgcolor',
+          '|',
+          'quote',
+          'fontfamily',
+          'fontsize',
+          'head',
+          'unorderlist',
+          'orderlist',
+          'alignleft',
+          'aligncenter',
+          'alignright',
+          '|',
+          'link',
+          'unlink',
+          'table',
+          'emotion',
+          '|',
+          'img',
+          'video',
+          'insertcode',
+          '|',
+          'undo',
+          'redo',
+          'fullscreen'
+        ]
+      }
+    },
+    components: {
+      vueWangeditor
+    }
   }
 </script>
 

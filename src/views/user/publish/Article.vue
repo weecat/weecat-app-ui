@@ -1,7 +1,8 @@
 <template>
   <div class="row">
     <div class="col-sm-12 col-md-9">
-      <form action="http://wenda.wecenter.com/publish/ajax/publish_article/" method="post" id="question_form" onsubmit="return false;">
+      <form action="http://wenda.wecenter.com/publish/ajax/publish_article/" method="post" id="question_form"
+            onsubmit="return false;">
         <input type="hidden" name="post_hash" value="a978004fffde856b7d3331b4af0ae1b4">
         <input type="hidden" name="attach_access_key" value="7149b02300315c0ecb9a45b609950196">
         <input type="hidden" name="article_id" id="article_id" value="">
@@ -56,13 +57,16 @@
             <div class="side-bar">
               <dl>
                 <dt class="pull-left">
-                  <img class="aw-border-radius-5" src="http://wenda.wecenter.com/static/css/default/img/default-cover.jpg" id="logo_img" style="height: 100px;width: 100px;"></dt>
+                  <img class="aw-border-radius-5"
+                       src="http://wenda.wecenter.com/static/css/default/img/default-cover.jpg" id="logo_img"
+                       style="height: 100px;width: 100px;"></dt>
                 <dd class="pull-left">
                   <h5>封面设置</h5>
                   <p>支持 jpg、gif、png 等格式的图片 建议图片尺寸为240*150</p>
                   <a class="btn btn-mini btn-success" id="logo_uploader" href="javascript:;">
                     <form method="post" enctype="multipart/form-data" id="upload-form-logo"
-                          class="upload-form" action="http://wenda.wecenter.com/publish/ajax/logo_upload/" target="ajaxUpload">
+                          class="upload-form" action="http://wenda.wecenter.com/publish/ajax/logo_upload/"
+                          target="ajaxUpload">
                       <input type="submit" class="submit">
                       <input type="file" class="file-input" name="aws_upload_file" multiple="multiple" accept="image/*">
                     </form>
@@ -77,7 +81,8 @@
             <div class="aw-mod aw-editor-box">
               <div class="mod-head">
                 <div class="wmd-panel">
-                  <textarea style="display: none;" id="wangcontent" rows="15" name="message"></textarea>
+                  <vue-wangeditor id="editor" :menus="menus" width="100%" v-model="text"></vue-wangeditor>
+                  <!--<textarea style="display: none;" id="wangcontent" rows="15" name="message"></textarea>-->
                 </div>
               </div>
               <div class="mod-body">
@@ -94,7 +99,7 @@
                 </span>
               </div>
               <div class="aw-edit-topic-box form-inline" style="display: block;">
-                <input type="text" class="form-control" id="aw_edit_topic_title" autocomplete="off" placeholder="创建或搜索添加新话题...">
+                <input type="text" class="form-control" placeholder="创建或搜索添加新话题...">
                 <a class="btn btn-normal btn-success add" style="display: none;">添加</a>
                 <a class="btn btn-normal btn-gray close-edit">取消</a>
                 <div class="aw-dropdown">
@@ -146,11 +151,58 @@
   </div>
 </template>
 <script>
+  import vueWangeditor from 'vue-wangeditor'
+
   export default {
-    name: 'Article'
+    name: 'Article',
+    data() {
+      return {
+        text: '',
+        menus: [
+          'source',
+          '|',
+          'bold',
+          'underline',
+          'italic',
+          'strikethrough',
+          'eraser',
+          'forecolor',
+          'bgcolor',
+          '|',
+          'quote',
+          'fontfamily',
+          'fontsize',
+          'head',
+          'unorderlist',
+          'orderlist',
+          'alignleft',
+          'aligncenter',
+          'alignright',
+          '|',
+          'link',
+          'unlink',
+          'table',
+          'emotion',
+          '|',
+          'img',
+          'video',
+          'insertcode',
+          '|',
+          'undo',
+          'redo',
+          'fullscreen'
+        ]
+      }
+    },
+    components: {
+      vueWangeditor
+    }
   }
 </script>
 
 <style scoped>
-
+  .editor {
+    width: 100%;
+    margin: 0 auto;
+  }
 </style>
