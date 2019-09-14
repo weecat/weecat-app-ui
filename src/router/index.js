@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import usersRouter from './modules/users'
+import userRouter from './modules/user'
 import accountRouter from './modules/account'
 /* Layout */
 import Layout from '@/views/layout/Layout'
@@ -34,7 +35,8 @@ export default new Router({
       component: () => import('@/views/topic/Index')
     },
       usersRouter,
-      accountRouter
+      accountRouter,
+      userRouter
     ]
   }]
 })
