@@ -4,6 +4,10 @@
 const userRouter = {
   path: 'user',
   name: 'User',
+  meta: {
+    requireAuth: true,
+    roles: ['ROLE_USER']
+  },
   component: () => import('@/views/user/Index'),
   children: [{
     path: 'inbox',

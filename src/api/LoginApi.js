@@ -2,11 +2,11 @@ import request from '@/utils/request'
 
 export default {
   /**
-   * 查询列表
+   * 用户登录
    */
-  workOrderList: function (data) {
+  login: function (data) {
     return request({
-      url: '/api/v1/workOrder/list',
+      url: '/api/v1/login',
       method: 'post',
       data: data
     })

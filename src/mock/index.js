@@ -1,6 +1,9 @@
 /**
  * 使用mockjs 模拟测试数据
  */
+// 登录注册
+require('./api/v1/Login')
+
 // 用户数据相关
 require('./api/v1/Users')
 

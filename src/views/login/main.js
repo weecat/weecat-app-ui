@@ -4,7 +4,8 @@ import Vue from 'vue'
 import App from './Index'
 
 Vue.config.productionTip = false
-
+// mock
+require('@/mock/index')
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -6,7 +6,7 @@
           <div class="content pull-left">
             <h1 class="logo"><a href="#"></a></h1>
             <h2>WeeCat 社交化问答社区程序</h2>
-            <form id="login_form">
+            <form>
               <ul>
                 <li>
                   <input type="text" class="form-control" placeholder="邮箱/手机号/用户名" name="user_name"/>
@@ -20,7 +20,7 @@
                   <i class="icon icon-delete"></i> <em></em>
                 </li>
                 <li class="last">
-                  <a href="#" id="login_submit" class="pull-right btn btn-large btn-primary">登录</a>
+                  <button type="button" class="pull-right btn btn-large btn-primary" @click="login">登录</button>
                   <label>
                     <input type="checkbox" value="1" name="net_auto_login"/>记住我
                   </label>
@@ -72,8 +72,37 @@
   import '@/assets/js/plug_module/style.css'
   import '@/assets/css/default/login.css'
 
+  import Storage from '@/storage'
+  import LoginApi from '@/api/LoginApi'
+
   export default {
-    name: 'LoginIndex'
+    name: 'LoginIndex',
+    data() {
+      return {
+        user: {
+          username: '',
+          password: ''
+        }
+      }
+    },
+    created() {
+    },
+    methods: {
+      login() {
+        console.log('login')
+        LoginApi.login(this.user).then(result => {
+          if (result.code === '0') {
+            // TODO..放入用户信息
+            Storage.setItem('AUTH_TOKEN', result.data.token)
+            window.location.href = '/#/'
+          } else {
+            console.log('登录失败')
+          }
+        }).catch(err => {
+          console.log(err)
+        })
+      }
+    }
   }
 </script>
 
@@ -81,6 +110,7 @@
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
   }
+
   .oldPwdTip {
     position: absolute;
     color: rgba(153, 153, 153, 1);
@@ -92,7 +122,8 @@
     line-height: 38px;
     color: #777777;
   }
-  .geetest_radar_tip_content{
+
+  .geetest_radar_tip_content {
     position: initial !important;
   }
 </style>

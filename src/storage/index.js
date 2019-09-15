@@ -11,7 +11,7 @@ export default {
    * @param key
    */
   getItem: function (key) {
-    localStorage.getItem(key)
+    return JSON.parse(localStorage.getItem(key))
   },
   /**
    * 根据key删除值

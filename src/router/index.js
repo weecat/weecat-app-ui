@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Storage from '@/storage'
 
 import usersRouter from './modules/users'
 import userRouter from './modules/user'
@@ -9,7 +10,7 @@ import Layout from '@/views/layout/Layout'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [{
     path: '/',
     component: Layout,
@@ -40,3 +41,18 @@ export default new Router({
     ]
   }]
 })
+// 判断路由拦截
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(res => res.meta.requireAuth)) {
+    let AUTH_TOKEN = Storage.getItem('AUTH_TOKEN')
+    if (AUTH_TOKEN) {
+      next()
+    } else {
+      // 没登录则跳转到登录界面
+      window.location.href = '/login.html?from=' + to.fullPath
+    }
+  } else {
+    next()
+  }
+})
+export default router
