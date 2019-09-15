@@ -34,6 +34,10 @@ const router = new Router({
       path: 'topic',
       name: 'Topics',
       component: () => import('@/views/topic/Index')
+    }, {
+      path: 'logout',
+      name: 'Logout',
+      component: () => import('@/views/Logout')
     },
       usersRouter,
       accountRouter,
