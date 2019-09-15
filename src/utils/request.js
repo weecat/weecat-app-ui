@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {getItem, removeItem} from '@/storage'
+import Storage from '@/storage'
 // create an axios instance
 const http = axios.create({
   baseURL: '', // api 的 base_url
@@ -7,7 +7,7 @@ const http = axios.create({
 })
 // 添加请求拦截
 http.interceptors.request.use(config => {
-  let AUTH_TOKEN = getItem('AUTH_TOKEN')
+  let AUTH_TOKEN = Storage.getItem('AUTH_TOKEN')
   // config.headers['Authorization'] = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyNTU4MTQiLCJleHAiOjE1Njk3NzI4MDAsImlhdCI6MTU2NzA5NDQwMH0.VJdXUmPGieZpJA_eF2rpQIQR6Mj1hHGP6J7uks8ULe8"
   if (AUTH_TOKEN) {
     config.headers['Authorization'] = AUTH_TOKEN
@@ -18,7 +18,7 @@ http.interceptors.request.use(config => {
 http.interceptors.response.use(response => {
   let code = response.data.code
   if (code === '1000004' || code === '1000006' || code === '1004007' || code === '1004009') {
-    removeItem('AUTH_TOKEN')
+    Storage.removeItem('AUTH_TOKEN')
     let callbackUrl = encodeURIComponent(window.location.href)
     window.location.href = '/login.html?from=' + callbackUrl
   } else {
