@@ -70,8 +70,8 @@
           <div class="aw-mod side-nav">
             <div class="mod-body">
               <ul>
-                <li><a href="http://wenda.wecenter.com/people/">全部</a></li>
-                <li><a href="http://wenda.wecenter.com/people/group_id-104">商业用户组</a></li>
+                <li><a href="/people/">全部</a></li>
+                <li><a href="/people/group_id-104">商业用户组</a></li>
               </ul>
             </div>
           </div>
@@ -79,27 +79,13 @@
           <div class="aw-mod side-nav">
             <div class="mod-body">
               <ul>
-                <li>
-                  <a href="http://wenda.wecenter.com/people/topic_id-765">下载</a>
-                </li>
-                <li>
-                  <a href="http://wenda.wecenter.com/people/topic_id-49" class="active">开发</a>
-                </li>
-                <li>
-                  <a href="http://wenda.wecenter.com/people/topic_id-858">微信</a>
-                </li>
-                <li>
-                  <a href="http://wenda.wecenter.com/people/topic_id-82">模板</a>
-                </li>
-                <li>
-                  <a href="http://wenda.wecenter.com/people/topic_id-819">程序</a>
-                </li>
-                <li>
-                  <a href="http://wenda.wecenter.com/people/topic_id-2694">网站</a>
-                </li>
-                <li>
-                  <a href="http://wenda.wecenter.com/people/topic_id-158">设计</a>
-                </li>
+                <li><a href="/people/topic_id-765">下载</a></li>
+                <li><a href="people/topic_id-49" class="active">开发</a></li>
+                <li><a href="/people/topic_id-858">微信</a></li>
+                <li><a href="/people/topic_id-82">模板</a></li>
+                <li><a href="/people/topic_id-819">程序</a></li>
+                <li><a href="/people/topic_id-2694">网站</a></li>
+                <li><a href="/people/topic_id-158">设计</a></li>
               </ul>
             </div>
           </div>
