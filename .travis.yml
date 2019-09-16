@@ -7,3 +7,15 @@ install:
 - npm install
 script:
 - npm run build
+after_success:
+- cd ..
+- git clone https://github.com/weecat/weecat.github.io.git
+- cd weecat.github.io
+- git config user.name "wangkun23"
+- git config user.email "845885222@qq.com"
+- rm -rf static
+- mv ../weecat-app-ui/dist .
+- git add .
+- git commit -m ":memo:\ Update docs by CI"
+- git push --force --quiet "https://${CI_TOKEN}@github.com/weecat/weecat.github.io.git" master:master
+
