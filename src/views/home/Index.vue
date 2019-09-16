@@ -159,7 +159,7 @@
 </template>
 
 <script>
-  import UsersApi from '@/api/UsersApi'
+  import UsersApi from '@/api/users/UsersApi'
   import TopicsApi from '@/api/TopicsApi'
   import PostsApi from '@/api/PostsApi'
 

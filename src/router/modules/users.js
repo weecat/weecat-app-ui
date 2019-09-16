@@ -6,7 +6,7 @@ const usersRouter = {
   name: 'Users',
   component: () => import('@/views/users/Index'),
   children: [{
-    path: '',
+    path: 'lists',
     name: 'UserLists.vue',
     component: () => import('@/views/users/UserLists')
   }, {
