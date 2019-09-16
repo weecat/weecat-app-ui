@@ -1,36 +1,6 @@
 <template>
   <div class="aw-container-wrap">
     <div class="container">
-      <div class="container category">
-        <div class="row">
-          <div class="col-sm-12">
-            <ul class="list">
-              <li class="active"><a href="/explore/">全部</a></li>
-              <li>
-                <a href="/explore/category-2">WeCenter 程序</a>
-              </li>
-              <li>
-                <a href="/explore/category-3">建站运营</a>
-              </li>
-              <li>
-                <a href="/explore/category-9">公告</a>
-              </li>
-              <li>
-                <a href="/explore/category-10">建议</a>
-              </li>
-              <li>
-                <a href="/consult/piazza/" target="_blank">咨询广场</a>
-              </li>
-              <li>
-                <a href="http://market.wecenter.com" target="_blank">应用市场</a>
-              </li>
-              <li>
-                <a href="/explore/category-5">问与答</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
       <div class="row">
         <div class="aw-content-wrap clearfix">
           <div class="col-sm-12 col-md-9 aw-main-content">

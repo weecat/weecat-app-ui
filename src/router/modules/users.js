@@ -4,43 +4,43 @@
 const usersRouter = {
   path: 'users',
   name: 'Users',
-  component: () => import('@/views/users/Index'),
+  component: () => import('@/views/users/UserInfo'),
   children: [{
     path: 'overview',
     name: 'Overview',
-    component: () => import('@/views/users/Overview')
+    component: () => import('@/views/users/info/Overview')
   }, {
     path: 'questions',
     name: 'Questions',
-    component: () => import('@/views/users/Questions')
+    component: () => import('@/views/users/info/Questions')
   }, {
     path: 'answers',
     name: 'Answers',
-    component: () => import('@/views/users/Answers')
+    component: () => import('@/views/users/info/Answers')
   }, {
     path: 'articles',
     name: 'Articles',
-    component: () => import('@/views/users/Articles')
+    component: () => import('@/views/users/info/Articles')
   }, {
     path: 'focus',
     name: 'Focus',
-    component: () => import('@/views/users/Focus')
+    component: () => import('@/views/users/info/Focus')
   }, {
     path: 'actions',
     name: 'Actions',
-    component: () => import('@/views/users/Actions')
+    component: () => import('@/views/users/info/Actions')
   }, {
     path: 'integral',
     name: 'Integral',
-    component: () => import('@/views/users/Integral')
+    component: () => import('@/views/users/info/Integral')
   }, {
     path: 'orders',
     name: 'Orders',
-    component: () => import('@/views/users/Orders')
+    component: () => import('@/views/users/info/Orders')
   }, {
     path: 'withdraw',
     name: 'Withdraw',
-    component: () => import('@/views/users/Withdraw')
+    component: () => import('@/views/users/info/Withdraw')
   }]
 }
 export default usersRouter
