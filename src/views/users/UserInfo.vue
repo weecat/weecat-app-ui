@@ -34,31 +34,31 @@
             </div>
             <div class="mod-footer">
               <ul class="nav nav-tabs aw-nav-tabs">
-                <router-link to="/users/overview" tag="li" active-class="active">
+                <router-link to="/users/info/overview" tag="li" active-class="active">
                   <a href="javascript:void(0);">概述</a>
                 </router-link>
-                <router-link to="/users/questions" tag="li" active-class="active">
+                <router-link to="/users/info/questions" tag="li" active-class="active">
                   <a href="javascript:void(0);">发问<span class="badge">0</span></a>
                 </router-link>
-                <router-link to="/users/answers" tag="li" active-class="active">
+                <router-link to="/users/info/answers" tag="li" active-class="active">
                   <a href="javascript:void(0);">回复<span class="badge">0</span></a>
                 </router-link>
-                <router-link to="/users/articles" tag="li" active-class="active">
+                <router-link to="/users/info/articles" tag="li" active-class="active">
                   <a href="javascript:void(0);">文章<span class="badge">0</span></a>
                 </router-link>
-                <router-link to="/users/focus" tag="li" active-class="active">
+                <router-link to="/users/info/focus" tag="li" active-class="active">
                   <a href="javascript:void(0);">关注</a>
                 </router-link>
-                <router-link to="/users/actions" tag="li" active-class="active">
+                <router-link to="/users/info/actions" tag="li" active-class="active">
                   <a href="javascript:void(0);">动态</a>
                 </router-link>
-                <router-link to="/users/integral" tag="li" active-class="active">
+                <router-link to="/users/info/integral" tag="li" active-class="active">
                   <a href="javascript:void(0);">我的积分</a>
                 </router-link>
-                <router-link to="/users/orders" tag="li" active-class="active">
+                <router-link to="/users/info/orders" tag="li" active-class="active">
                   <a href="javascript:void(0);">交易订单</a>
                 </router-link>
-                <router-link to="/users/withdraw" tag="li" active-class="active">
+                <router-link to="/users/info/withdraw" tag="li" active-class="active">
                   <a href="javascript:void(0);">提现记录</a>
                 </router-link>
               </ul>
