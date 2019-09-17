@@ -69,9 +69,9 @@
       <div class="aw-user-nav">
         <!-- 登陆&注册栏 -->
         <template v-if="login">
-          <a href="http://wenda.wecenter.com/people/11129" class="aw-user-nav-dropdown">
+          <router-link to="/users/info/overview" class="aw-user-nav-dropdown">
             <img alt="mycms2013" src="http://wenda.wecenter.com/uploads/avatar/000/01/11/29_avatar_mid.jpg">
-          </a>
+          </router-link>
           <div class="aw-dropdown dropdown-list pull-right">
             <ul class="aw-dropdown-list">
               <li>

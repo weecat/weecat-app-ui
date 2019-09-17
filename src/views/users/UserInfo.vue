@@ -15,9 +15,10 @@
               <h1>mycms2013 </h1>
               <p class="text-color-999"></p>
               <p class="aw-user-flag">
-                  <span>绑定认证 <a href="http://www.weibo.com/3281931332" title="微博">
-                    <i class="icon icon-weibo"></i>
-                  </a>
+                  <span>绑定认证
+                    <a href="http://www.weibo.com/3281931332" title="微博">
+                      <i class="icon icon-weibo"></i>
+                    </a>
                   </span>
               </p>
             </div>
