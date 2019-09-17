@@ -3,7 +3,7 @@ import Mock from 'mockjs'
 Mock.mock('/api/v1/columns/latest', 'post', {
     code: '100000',
     data: {
-      'list|5': [{
+      'list|6': [{
         'column_id': '@id',
         'column_name|3-7': '@cname',
         'column_pic|1': [
@@ -29,7 +29,7 @@ Mock.mock('/api/v1/columns/latest', 'post', {
 Mock.mock('/api/v1/columns/hot', 'post', {
     code: '100000',
     data: {
-      'list|5': [{
+      'list|6': [{
         'column_id': '@id',
         'column_name|3-7': '@cname',
         'column_pic|1': [

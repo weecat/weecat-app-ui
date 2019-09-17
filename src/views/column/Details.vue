@@ -8,12 +8,16 @@
               <template v-for="article in articles">
                 <dl v-bind:key="article.id">
                   <dt>
-                    <a href="/article/1675#!answer_form">
+                    <router-link :to="'/article/details/'+article.id">
                       <img :src="'http://wenda.wecenter.com'+article.article_img">
-                    </a>
+                    </router-link>
                   </dt>
                   <dd>
-                    <h2><a href="/article/1675">{{article.title}}</a></h2>
+                    <h2>
+                      <router-link :to="'/article/details/'+article.id">
+                        {{article.title}}
+                      </router-link>
+                    </h2>
                     <p style="cursor: pointer;">
                       你的网站是不是也被灌水机攻击了，删问题删的手软，以下方法可以让它自动清理：
                       1、禁止灌水发提问的用户（这是关键）
@@ -38,45 +42,46 @@
           <div class="N-right clearfix">
 
             <div class="author">
-              <div class="author-phone"><p>
-                <img onclick=""
-                     src="http://wenda.wecenter.com/uploads/column/c880d3d99c04e854bd108121b0f50157.png?3750">
-              </p><span class="author-icon"></span></div>
-
+              <div class="author-phone">
+                <p>
+                  <img src="http://wenda.wecenter.com/uploads/column/c880d3d99c04e854bd108121b0f50157.png?3750">
+                </p>
+                <span class="author-icon"></span>
+              </div>
               <p class="author-name">二次开发</p>
               <p class="author-profile">Wecenter 二次开发</p>
-
               <span class="author-fav">
-                                                            <a href="javascript:;"
-                                                               onclick="AWS.User.follow($(this), 'column', 6 , true);"
-                                                               class="active"><span>取消关注</span></a>
-                                <a href="javascript:;" onclick="AWS.dialog('inbox','Alu');" class="author-sx">私信</a>
-                                                                                </span>
+                <a href="javascript:;" class="active"><span>取消关注</span></a>
+                <a href="javascript:;" class="author-sx">私信</a>
+              </span>
               <div class="author-record">
-                <p class="newCount"><img src="http://wenda.wecenter.com/static/css/default/img/nsee.png">文章总浏览量<span
-                  class="rt">3.37 K</span></p>
-                <p class="newCount"><img src="http://wenda.wecenter.com/static/css/default/img/nsan.png">发表文章总数<span
-                  class="rt">4</span></p>
-                <p class="newCount"><img src="http://wenda.wecenter.com/static/css/default/img/nsvn.png">被关注数<span
-                  class="rt">50</span></p>
+                <p class="newCount">
+                  <img src="http://wenda.wecenter.com/static/css/default/img/nsee.png">
+                  文章总浏览量<span class="rt">3.37 K</span>
+                </p>
+                <p class="newCount">
+                  <img src="http://wenda.wecenter.com/static/css/default/img/nsan.png">发表文章总数
+                  <span class="rt">4</span>
+                </p>
+                <p class="newCount">
+                  <img src="http://wenda.wecenter.com/static/css/default/img/nsvn.png">被关注数
+                  <span class="rt">50</span>
+                </p>
               </div>
             </div>
 
             <div class="m-hot">
               <div class="m-hot-tt"><i></i>TA的热门文章</div>
               <dl>
-
                 <dt>
                   <i><img src="http://wenda.wecenter.com/static/css/default/img/nicon.png"></i>
                   <a href="http://wenda.wecenter.com/article/110#!answer_form"><img class="m-imgtop" src="">
                     <h2>分享一个自定义WC首页的方法(修改默认首...</h2></a>
                 </dt>
-
                 <dd class="clearfix">
                   <a href="http://wenda.wecenter.com/article/1236#!answer_form"><img src=""><i>2</i></a>
                   <a href="http://wenda.wecenter.com/article/1236#!answer_form" class="mhottitle">【分享】文章列表显示图片列表的...</a>
                 </dd>
-
                 <dd class="clearfix">
                   <a href="http://wenda.wecenter.com/article/1325#!answer_form"><img src=""><i>3</i></a>
                   <a href="http://wenda.wecenter.com/article/1325#!answer_form" class="mhottitle">让你网站的积分动起来，股票积分...</a>

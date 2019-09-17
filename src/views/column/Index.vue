@@ -34,7 +34,7 @@
                     </dt>
                     <dd>
                       <h2>
-                        <a href="/column/details/9">{{column.column_name}}</a>
+                        <router-link :to="'/column/details/'+column.column_id">{{column.column_name}}</router-link>
                       </h2>
                       <p>{{column.column_description}}</p>
                       <span>
@@ -49,7 +49,7 @@
                   </dl>
                 </template>
               </div>
-              <h6 class="nhref" id="bp_all_more" data-page="1"><i>
+              <h6 class="nhref" data-page="1"><i>
                 <img src="@/assets/css/default/img/href.png"></i>换一换
               </h6>
               <div class="N-mytitles">
@@ -58,15 +58,17 @@
               </div>
               <div class="nzllist">
                 <template v-for="article in articles">
-                  <dl v-bind:key="article.article_id">
+                  <dl v-bind:key="article.id">
                     <dt>
-                      <a href="/article/1687">
+                      <router-link :to="'/article/details/'+article.id">
                         <img :src="'http://wenda.wecenter.com'+article.article_img">
-                      </a>
+                      </router-link>
                     </dt>
                     <dd>
                       <h2>
-                        <a href="http://wenda.wecenter.com/article/1687">{{article.title}}</a>
+                        <router-link :to="'/article/details/'+article.id">
+                          {{article.title}}
+                        </router-link>
                       </h2>
                       <b>{{article.user.user_name}}</b>
                       <span>

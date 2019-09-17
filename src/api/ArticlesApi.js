@@ -10,5 +10,15 @@ export default {
       method: 'post',
       data: data
     })
+  },
+  /**
+   * 获取详情页面
+   * @param data
+   */
+  getDetails: function (id) {
+    return request({
+      url: '/api/v1/article/details/' + id,
+      method: 'get'
+    })
   }
 }

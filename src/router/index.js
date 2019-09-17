@@ -35,6 +35,10 @@ const router = new Router({
       name: 'Topics',
       component: () => import('@/views/topic/Index')
     }, {
+      path: 'article/details/:id(\\d+)',
+      name: 'ArticleDetails',
+      component: () => import('@/views/article/Details')
+    }, {
       path: 'logout',
       name: 'Logout',
       component: () => import('@/views/Logout')
